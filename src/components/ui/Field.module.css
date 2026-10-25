@@ -1,0 +1,9 @@
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.hint {
+  font-size: 0.82rem;
+  color: var(--muted);
+}

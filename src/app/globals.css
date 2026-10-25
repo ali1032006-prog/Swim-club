@@ -1,0 +1,207 @@
+/*
+  Global layer: design tokens, theme/RTL switches, resets and base form controls.
+  Everything component-specific lives in that component's *.module.css file.
+*/
+
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f2fbfc;
+  --fg: #0d3b44;
+  --muted: #4f7279;
+  --aqua: #19b3c4;
+  --aqua-deep: #0a8796;
+  --accent-text: #087683;
+  --aqua-wash: #d6f4f7;
+  --line: #c4e6ea;
+  --on-aqua: #ffffff;
+  --rope-a: #ffffff;
+  --rope-b: #0a6e7a;
+  --danger: #c2413a;
+  --ok: #148a5b;
+  --p1: #0f97a6;
+  --p2: #2a74c4;
+  --p3: #0f8a6e;
+  --p4: #6a5cc7;
+  /* --font-* are set by next/font on <html> (see app/fonts.ts). */
+  --display: var(--font-bricolage), "Segoe UI", system-ui, sans-serif;
+  --body: var(--font-nunito), "Segoe UI", system-ui, sans-serif;
+}
+
+/* Dark theme: follows the OS unless the visitor picked light explicitly. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #071e23;
+    --surface: #0c2a31;
+    --fg: #e3f7f9;
+    --muted: #93b9bf;
+    --aqua: #2fc6d6;
+    --aqua-deep: #0f5d68;
+    --accent-text: #4fd3e1;
+    --aqua-wash: #103840;
+    --line: #1d4a52;
+    --on-aqua: #ffffff;
+    --rope-a: #d9f6f9;
+    --rope-b: #2fc6d6;
+    --danger: #ff8a80;
+    --ok: #5fd3a2;
+    --p1: #12869a;
+    --p2: #2f6db5;
+    --p3: #127d65;
+    --p4: #6458bb;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #071e23;
+  --surface: #0c2a31;
+  --fg: #e3f7f9;
+  --muted: #93b9bf;
+  --aqua: #2fc6d6;
+  --aqua-deep: #0f5d68;
+  --accent-text: #4fd3e1;
+  --aqua-wash: #103840;
+  --line: #1d4a52;
+  --on-aqua: #ffffff;
+  --rope-a: #d9f6f9;
+  --rope-b: #2fc6d6;
+  --danger: #ff8a80;
+  --ok: #5fd3a2;
+  --p1: #12869a;
+  --p2: #2f6db5;
+  --p3: #127d65;
+  --p4: #6458bb;
+  color-scheme: dark;
+}
+
+:root[lang="ar"] {
+  --display: var(--font-plex-arabic), "Segoe UI", Tahoma, sans-serif;
+  --body: var(--font-plex-arabic), "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ---------- Reset ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  transition: background 0.2s, color 0.2s;
+}
+
+:root[lang="ar"] body {
+  line-height: 1.7;
+}
+
+/* Covers the notch so sticky content never shows through behind it. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+/* While the theme switches, ease colours everywhere except the switch controls themselves. */
+:root.theme-anim *:not([data-theme-ui]):not([data-theme-ui] *) {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Base form controls (shared by every form in the app) ---------- */
+
+label {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+input,
+select {
+  width: 100%;
+  font: inherit;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input[type="email"],
+input[type="tel"] {
+  direction: ltr;
+}
+
+:root[dir="rtl"] input[type="email"],
+:root[dir="rtl"] input[type="tel"] {
+  text-align: right;
+}
+
+input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 4px var(--aqua-wash);
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+legend {
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0;
+  margin-bottom: 6px;
+}

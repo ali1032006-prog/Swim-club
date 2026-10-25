@@ -1,0 +1,41 @@
+.topbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-block: 12px;
+}
+
+.brandLink {
+  display: inline-flex;
+  color: var(--fg);
+  text-decoration: none;
+  padding: 4px 6px;
+  margin-inline-start: -6px;
+  border-radius: 10px;
+}
+
+.brandLink:focus-visible {
+  outline: 2px solid var(--aqua);
+}
+
+.prefs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background: var(--line);
+}

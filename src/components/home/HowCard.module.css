@@ -1,0 +1,83 @@
+.card {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  padding: 26px 28px;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  background: var(--bg);
+  scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 84px);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--accent-text);
+  background: var(--aqua-wash);
+  border-radius: 12px;
+}
+
+.icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.head h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.35rem;
+}
+
+.list {
+  margin: 0;
+  display: grid;
+}
+
+.list > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 1.02rem;
+}
+
+.list > div:last-child {
+  border-bottom: 0;
+}
+
+.list dt {
+  font-weight: 700;
+}
+
+.list dd {
+  margin: 0;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.list dd > * + * {
+  margin-inline-start: 6px;
+}
+
+.note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .card {
+    padding: 22px 20px;
+  }
+}

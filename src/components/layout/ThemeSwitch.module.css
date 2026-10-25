@@ -1,0 +1,144 @@
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--fg);
+  background: none;
+  border: 0;
+  padding: 4px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--aqua);
+  outline-offset: 2px;
+}
+
+.track {
+  position: relative;
+  direction: ltr;
+  flex: none;
+  width: 58px;
+  height: 30px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #bff0f5, #8fe3ec);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+  overflow: hidden;
+  transition: background 0.45s ease;
+}
+
+.switch[aria-checked="true"] .track {
+  background: linear-gradient(90deg, #0b2d36, #134650);
+}
+
+/* Two tiny stars that appear at night. */
+.track::before,
+.track::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.track::before {
+  width: 3px;
+  height: 3px;
+  top: 8px;
+  left: 12px;
+}
+
+.track::after {
+  width: 2px;
+  height: 2px;
+  top: 18px;
+  left: 20px;
+}
+
+.switch[aria-checked="true"] .track::before,
+.switch[aria-checked="true"] .track::after {
+  opacity: 0.9;
+  transform: none;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 9px;
+  background: repeating-radial-gradient(
+    circle at 6px -2px,
+    transparent 0 5px,
+    rgba(255, 255, 255, 0.75) 5px 7px,
+    transparent 7px 12px
+  );
+  background-size: 12px 9px;
+  opacity: 0.8;
+  animation: wave 2.4s linear infinite;
+  transition: opacity 0.4s;
+}
+
+.switch[aria-checked="true"] .wave {
+  opacity: 0.18;
+}
+
+@keyframes wave {
+  to {
+    background-position: 12px 0;
+  }
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(4, 40, 48, 0.3);
+  display: grid;
+  place-items: center;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s;
+}
+
+.switch[aria-checked="true"] .thumb {
+  transform: translateX(28px);
+  background: #e3f7f9;
+}
+
+.thumb svg {
+  grid-area: 1 / 1;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+}
+
+.sun {
+  color: #f2a516;
+}
+
+.moon {
+  color: #134650;
+  opacity: 0;
+  transform: rotate(-120deg) scale(0.4);
+}
+
+.switch[aria-checked="true"] .sun {
+  opacity: 0;
+  transform: rotate(120deg) scale(0.4);
+}
+
+.switch[aria-checked="true"] .moon {
+  opacity: 1;
+  transform: none;
+}
+
+.switch:active .thumb {
+  width: 28px;
+}

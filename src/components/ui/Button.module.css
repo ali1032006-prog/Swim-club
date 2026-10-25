@@ -1,0 +1,122 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.wide {
+  width: 100%;
+}
+
+/* Solid aqua: the main action of a page. */
+.primary {
+  font-size: 1.05rem;
+  color: var(--on-aqua);
+  background: var(--aqua-deep);
+  padding: 14px 20px;
+  transition: transform 0.12s, background 0.15s;
+}
+
+.primary:hover {
+  background: var(--aqua);
+}
+
+.primary:active {
+  transform: translateY(1px);
+}
+
+.primary:focus-visible {
+  outline: 3px solid var(--aqua);
+  outline-offset: 3px;
+}
+
+/* Outlined: secondary actions. */
+.ghost {
+  color: var(--fg);
+  background: none;
+  border: 1.5px solid var(--line);
+  padding: 11px 18px;
+}
+
+.ghost:hover {
+  border-color: var(--aqua);
+}
+
+.ghost:focus-visible {
+  outline: 3px solid var(--aqua);
+  outline-offset: 2px;
+}
+
+.ghost.sm {
+  padding: 7px 14px;
+  font-size: 0.88rem;
+}
+
+/* White pill for use on the aqua hero. */
+.light {
+  font-size: 1.05rem;
+  color: var(--aqua-deep);
+  background: #ffffff;
+  padding: 14px 26px;
+  box-shadow: 0 8px 22px rgba(4, 50, 60, 0.25);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s;
+}
+
+.light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(4, 50, 60, 0.3);
+}
+
+.light:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+:global(:root[data-theme="dark"]) .light {
+  color: #0b5b66;
+}
+
+.outlineLight {
+  font-size: 1.05rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  padding: 13px 24px;
+}
+
+.outlineLight:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.outlineLight:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.loading {
+  cursor: progress;
+  opacity: 0.85;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  margin-inline-end: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

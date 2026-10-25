@@ -1,0 +1,10 @@
+.banner {
+  background: var(--aqua-wash);
+  color: var(--fg);
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-block: 9px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}

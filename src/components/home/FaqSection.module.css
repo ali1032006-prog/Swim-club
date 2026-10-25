@@ -1,0 +1,93 @@
+.faq {
+  display: grid;
+  gap: 10px;
+}
+
+.item {
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 0 18px;
+  background: var(--bg);
+}
+
+.item summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 16px 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+.item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--accent-text);
+  transition: transform 0.3s;
+}
+
+.item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.item summary:focus-visible {
+  outline: 2px solid var(--aqua);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.item p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.answerGroup {
+  padding-bottom: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.answerGroup p {
+  margin: 0;
+}
+
+.pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pills li {
+  background: var(--bg);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.flash {
+  animation: flash 1.2s ease;
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    border-color: var(--line);
+  }
+
+  30% {
+    border-color: var(--aqua);
+    box-shadow: 0 0 0 4px var(--aqua-wash);
+  }
+}

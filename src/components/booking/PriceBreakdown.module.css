@@ -1,0 +1,62 @@
+.box {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 0;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+.box h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+}
+
+.tiers {
+  display: grid;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.tier {
+  transition: color 0.3s;
+}
+
+.active {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.lines {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 12px;
+  margin: 0;
+}
+
+.lines dt {
+  color: var(--muted);
+}
+
+.lines dd {
+  margin: 0;
+  text-align: end;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.discount {
+  color: var(--ok);
+}
+
+.lines .grand {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--fg);
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}

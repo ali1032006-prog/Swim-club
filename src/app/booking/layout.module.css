@@ -1,0 +1,5 @@
+.main {
+  padding-block: 36px 64px;
+  display: grid;
+  gap: 36px;
+}

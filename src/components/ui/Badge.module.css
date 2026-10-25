@@ -1,0 +1,6 @@
+.badge {
+  background: var(--aqua-wash);
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}

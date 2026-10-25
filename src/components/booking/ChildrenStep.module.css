@@ -1,0 +1,12 @@
+.list {
+  display: grid;
+  gap: 14px;
+}
+
+.add {
+  margin-top: 14px;
+}
+
+.error {
+  margin-top: 12px;
+}

@@ -1,0 +1,44 @@
+.wrapper {
+  position: relative;
+}
+
+.pop {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 8px);
+  inset-inline-start: 0;
+  width: min(340px, 100%);
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--bg);
+  border: 1.5px solid var(--line);
+  box-shadow: 0 14px 34px rgba(6, 50, 60, 0.18);
+  transform-origin: top center;
+  animation: pop-in 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Little arrow pointing at the dropdown. */
+.pop::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  inset-inline-start: 28px;
+  width: 12px;
+  height: 12px;
+  background: var(--bg);
+  border-top: 1.5px solid var(--line);
+  border-left: 1.5px solid var(--line);
+  transform: rotate(45deg);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

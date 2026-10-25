@@ -1,0 +1,21 @@
+.title {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+
+.title:focus {
+  outline: none;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: -6px 0 16px;
+}
+
+:global(:root[lang="ar"]) .title {
+  letter-spacing: 0;
+}

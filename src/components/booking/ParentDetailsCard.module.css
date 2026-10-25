@@ -1,0 +1,11 @@
+.card {
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  background: var(--bg);
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}

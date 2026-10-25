@@ -1,0 +1,97 @@
+.banner {
+  background: linear-gradient(165deg, var(--aqua) 0%, var(--aqua-deep) 100%);
+  color: var(--on-aqua);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  padding-block: 40px 44px;
+}
+
+/* Ropes sit behind the content, on the trailing side so text stays readable. */
+.ropes {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 45%;
+  inset-inline-end: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.rope {
+  width: 7px;
+  height: 100%;
+  opacity: 0.35;
+  background: repeating-linear-gradient(180deg, var(--rope-a) 0 14px, var(--rope-b) 14px 28px);
+  border-radius: 4px;
+}
+
+.content {
+  position: relative;
+}
+
+.title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+
+.text {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1.05rem;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+:global(:root[lang="ar"]) .tag,
+:global(:root[lang="ar"]) .title {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Hero variant */
+.hero .inner {
+  padding-block: 64px 72px;
+}
+
+.hero .title {
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  max-width: 18ch;
+}
+
+.hero .text {
+  font-size: 1.15rem;
+  max-width: 52ch;
+}
+
+.hero .tag {
+  border-radius: 14px;
+}
+
+@media (max-width: 480px) {
+  .ropes {
+    inset-inline-start: 0;
+  }
+
+  .hero .inner {
+    padding-block: 44px 64px;
+  }
+}
